@@ -1,0 +1,209 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OLNMT8Y57zTM",
+        "outputId": "e5744cd7-09e4-48c9-d034-6ae2a1a3764a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting owlready2\n",
+            "  Downloading owlready2-0.47.tar.gz (27.3 MB)\n",
+            "\u001b[2K     \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m27.3/27.3 MB\u001b[0m \u001b[31m56.9 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25h  Installing build dependencies ... \u001b[?25l\u001b[?25hdone\n",
+            "  Getting requirements to build wheel ... \u001b[?25l\u001b[?25hdone\n",
+            "  Preparing metadata (pyproject.toml) ... \u001b[?25l\u001b[?25hdone\n",
+            "Building wheels for collected packages: owlready2\n",
+            "  Building wheel for owlready2 (pyproject.toml) ... \u001b[?25l\u001b[?25hdone\n",
+            "  Created wheel for owlready2: filename=owlready2-0.47-cp310-cp310-linux_x86_64.whl size=24075202 sha256=72467017228c22e4e59ba975f1173f75259cbc354ccefb6af2d06c94b942fed6\n",
+            "  Stored in directory: /root/.cache/pip/wheels/27/3e/ba/4171c4b10bba9fe1774fbf8fcf794de889e636ce64ad83a533\n",
+            "Successfully built owlready2\n",
+            "Installing collected packages: owlready2\n",
+            "Successfully installed owlready2-0.47\n",
+            "Collecting PyQt5\n",
+            "  Downloading PyQt5-5.15.11-cp38-abi3-manylinux_2_17_x86_64.whl.metadata (2.1 kB)\n",
+            "Collecting PyQt5-sip<13,>=12.15 (from PyQt5)\n",
+            "  Downloading PyQt5_sip-12.16.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (421 bytes)\n",
+            "Collecting PyQt5-Qt5<5.16.0,>=5.15.2 (from PyQt5)\n",
+            "  Downloading PyQt5_Qt5-5.15.15-py3-none-manylinux2014_x86_64.whl.metadata (536 bytes)\n",
+            "Downloading PyQt5-5.15.11-cp38-abi3-manylinux_2_17_x86_64.whl (8.2 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m8.2/8.2 MB\u001b[0m \u001b[31m22.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading PyQt5_Qt5-5.15.15-py3-none-manylinux2014_x86_64.whl (59.8 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m59.8/59.8 MB\u001b[0m \u001b[31m15.1 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hDownloading PyQt5_sip-12.16.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.whl (270 kB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m270.8/270.8 kB\u001b[0m \u001b[31m18.3 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: PyQt5-Qt5, PyQt5-sip, PyQt5\n",
+            "Successfully installed PyQt5-5.15.11 PyQt5-Qt5-5.15.15 PyQt5-sip-12.16.0\n"
+          ]
+        }
+      ],
+      "source": [
+        "!pip install owlready2\n",
+        "!pip install PyQt5"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import os\n",
+        "import random"
+      ],
+      "metadata": {
+        "id": "UNFOnDKh8_UJ"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import zipfile"
+      ],
+      "metadata": {
+        "id": "dbMQBpG_-aey"
+      },
+      "execution_count": 11,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import zipfile\n",
+        "\n",
+        "with zipfile.ZipFile(\"/content/mathematics_dataset-master.zip\", \"r\") as zip_ref:\n",
+        "    zip_ref.extractall(\"/content/\")  # Extract to the /content/ directory"
+      ],
+      "metadata": {
+        "id": "j5qTCzk2-E8u"
+      },
+      "execution_count": 21,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# Update this path to point to the folder containing the dataset\n",
+        "DATASET_PATH = \"path/to/mathematics_dataset-master/train\"\n",
+        "\n",
+        "# Define category-to-file mapping\n",
+        "CATEGORIES = {\n",
+        "    1: \"algebra.txt\",\n",
+        "    2: \"arithmetic.txt\",\n",
+        "    3: \"calculus.txt\",\n",
+        "    4: \"comparison.txt\",\n",
+        "    5: \"geometry.txt\",\n",
+        "    6: \"numbers.txt\",\n",
+        "    7: \"probability.txt\",\n",
+        "}\n",
+        "\n",
+        "def load_questions(category_file):\n",
+        "    \"\"\"Load questions from the specified file.\"\"\"\n",
+        "    file_path = os.path.join(DATASET_PATH, category_file)\n",
+        "    if not os.path.exists(file_path):\n",
+        "        raise FileNotFoundError(f\"Dataset file not found: {file_path}\")\n",
+        "\n",
+        "    with open(file_path, \"r\") as file:\n",
+        "        lines = file.readlines()\n",
+        "\n",
+        "    questions = [line.strip() for line in lines]\n",
+        "    return questions\n",
+        "\n",
+        "def quiz_user(questions):\n",
+        "    \"\"\"Quiz the user with random questions from the selected category.\"\"\"\n",
+        "    import random\n",
+        "    print(\"\\nStarting the quiz! Type 'exit' to quit anytime.\")\n",
+        "    random.shuffle(questions)\n",
+        "\n",
+        "    for question in questions:\n",
+        "        print(f\"\\nQuestion: {question}\")\n",
+        "        user_answer = input(\"Your answer: \")\n",
+        "        if user_answer.lower() == \"exit\":\n",
+        "            print(\"Exiting the quiz. Goodbye!\")\n",
+        "            break\n",
+        "        print(\"Thank you! Let's move to the next question.\")\n",
+        "\n",
+        "def main():\n",
+        "    print(\"Welcome to the Intelligent Tutoring System for Mathematics!\")\n",
+        "    print(\"Select a category:\")\n",
+        "    for key, category in CATEGORIES.items():\n",
+        "        print(f\"{key}. {category.replace('.txt', '').capitalize()}\")\n",
+        "\n",
+        "    try:\n",
+        "        choice = int(input(\"Enter your choice (1-7): \"))\n",
+        "        if choice not in CATEGORIES:\n",
+        "            print(\"Invalid choice. Please select a number between 1 and 7.\")\n",
+        "            return\n",
+        "\n",
+        "        category_file = CATEGORIES[choice]\n",
+        "        print(f\"You selected: {category_file.replace('.txt', '').capitalize()}\")\n",
+        "\n",
+        "        # Load questions for the selected category\n",
+        "        questions = load_questions(category_file)\n",
+        "\n",
+        "        # Start the quiz\n",
+        "        quiz_user(questions)\n",
+        "\n",
+        "    except ValueError:\n",
+        "        print(\"Please enter a valid number.\")\n",
+        "    except FileNotFoundError as e:\n",
+        "        print(f\"An error occurred: {e}\")\n",
+        "    except Exception as e:\n",
+        "        print(f\"An unexpected error occurred: {e}\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pUWJWmYN_oYm",
+        "outputId": "3b9717bc-df6e-4ab6-b475-23ab9ac6d4fd"
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Welcome to the Intelligent Tutoring System for Mathematics!\n",
+            "Select a category:\n",
+            "1. Algebra\n",
+            "2. Arithmetic\n",
+            "3. Calculus\n",
+            "4. Comparison\n",
+            "5. Geometry\n",
+            "6. Numbers\n",
+            "7. Probability\n",
+            "Enter your choice (1-7): 3\n",
+            "You selected: Calculus\n",
+            "An error occurred: Dataset file not found: path/to/mathematics_dataset-master/train/calculus.txt\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
